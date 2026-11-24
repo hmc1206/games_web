@@ -6,9 +6,9 @@
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,'Noto Sans KR',sans-serif;background:#0f172a;color:#e2e8f0}
 header{text-align:center;padding:48px 16px 24px}h1{margin:0 0 8px;font-size:2rem}p{margin:0;color:#94a3b8}
 main{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;max-width:1000px;margin:0 auto;padding:24px 16px 64px}
-a.card{display:block;padding:28px 20px;border-radius:16px;background:#1e293b;border:1px solid #334155;text-decoration:none;color:inherit;transition:.2s}
+a.card{display:block;overflow:hidden;padding:0 0 20px;border-radius:16px;background:#1e293b;border:1px solid #334155;text-decoration:none;color:inherit;transition:.2s}
 a.card:hover{transform:translateY(-4px);border-color:#38bdf8;box-shadow:0 8px 24px #0006}
-.n{font-size:1.3rem;font-weight:700}.s{margin-top:6px;color:#94a3b8}.g{margin-top:12px;color:#38bdf8;font-size:.9rem}
+.t{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:top;display:block;background:#0b1220}.n,.s,.g{padding:0 20px}.n{margin-top:16px;font-size:1.3rem;font-weight:700}.s{margin-top:6px;color:#94a3b8}.g{margin-top:12px;color:#38bdf8;font-size:.9rem}
 </style></head><body>
 <header><h1>🎮 AI 바이브코딩 게임 갤러리</h1><p>카드를 눌러 친구들이 만든 게임을 플레이해 보세요</p></header>
 <main id="g"></main>
@@ -16,8 +16,9 @@ a.card:hover{transform:translateY(-4px);border-color:#38bdf8;box-shadow:0 8px 24
 const DATA=[{"name": "홍주형", "title": "뽕술회전", "url": "https://ppongsul-phase-two-996ec6.imaginativemarigold4.chatgpt.site"}, {"name": "조진우", "title": "게임 모음집", "url": "https://ezzlu2113-cloud.github.io/test1/"}, {"name": "강민준", "title": "백룸 탈출", "url": "https://backrooms-escape-1-2.buddingmongoose2.chatgpt.site"}, {"name": "윤준혁", "title": "벽돌 깨기 (Breakout)", "url": "https://vlfxprtm.github.io/breakout/"}, {"name": "박주환", "title": "외노자 키우기", "url": "https://harmonious-profiterole-725e79.netlify.app/"}, {"name": "김별", "title": "BLOCK WAR - CLASSIC EDITION", "url": "https://shooting0604star-wq.github.io/block-war/"}];
 const m=document.getElementById('g');
 DATA.forEach(x=>{const a=document.createElement('a');a.className='card';a.href=x.url;a.target='_blank';a.rel='noopener';
+ const t=document.createElement('img');t.className='t';t.loading='lazy';t.alt=x.title+' 미리보기';t.src='https://image.thum.io/get/width/600/'+x.url;t.onerror=()=>t.style.visibility='hidden';
  const n=document.createElement('div');n.className='n';n.textContent=x.title;
  const s=document.createElement('div');s.className='s';s.textContent=x.name;
  const g=document.createElement('div');g.className='g';g.textContent='게임 하기 ▶';
- a.append(n,s,g);m.append(a)});
+ a.append(t,n,s,g);m.append(a)});
 </script></body></html>
